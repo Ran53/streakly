@@ -10,84 +10,168 @@
             padding: 0;
             box-sizing: border-box;
         }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: #1A1A1A;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
         }
+        
         .container {
-            background: white;
+            background: #2A2A2A;
             border-radius: 20px;
+            border: 1px solid #444444;
             padding: 40px 30px;
             max-width: 400px;
+            width: 100%;
             text-align: center;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         }
+        
         .emoji {
-            font-size: 60px;
+            font-size: 64px;
             margin-bottom: 20px;
+            animation: pulse 2s ease-in-out infinite;
         }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
         h1 {
-            color: #333;
+            color: #FFFFFF;
             margin-bottom: 10px;
             font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
         }
+        
         .challenge-name {
-            color: #667eea;
+            color: #FFFFFF;
             font-weight: bold;
-            font-size: 20px;
-            margin: 15px 0;
+            font-size: 22px;
+            margin: 20px 0;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
+        
         .details {
-            background: #f5f5f5;
-            padding: 15px;
-            border-radius: 10px;
+            background: #1A1A1A;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #444444;
             margin: 20px 0;
         }
+        
         .detail-item {
             display: flex;
             justify-content: space-between;
-            margin: 8px 0;
-            font-size: 14px;
+            align-items: center;
+            margin: 12px 0;
+            font-size: 15px;
+            color: #999999;
         }
+        
+        .detail-item strong {
+            color: #FFFFFF;
+            font-weight: 600;
+        }
+        
         .btn {
             display: block;
             width: 100%;
             padding: 18px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: #FFFFFF;
+            color: #1A1A1A;
             text-decoration: none;
             border-radius: 12px;
             font-size: 16px;
             font-weight: bold;
-            margin: 15px 0;
-            transition: transform 0.2s;
+            margin: 20px 0;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
         }
+        
+        .btn:hover {
+            background: #F0F0F0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 255, 255, 0.3);
+        }
+        
         .btn:active {
-            transform: scale(0.98);
+            transform: translateY(0);
         }
+        
         .loading {
             display: none;
-            color: #666;
+            color: #999999;
             font-size: 14px;
             margin-top: 20px;
         }
+        
         .spinner {
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #667eea;
+            border: 3px solid #444444;
+            border-top: 3px solid #FFFFFF;
             border-radius: 50%;
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
             animation: spin 1s linear infinite;
             margin: 20px auto;
         }
+        
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
+        }
+        
+        .error-message {
+            display: none;
+            background: rgba(255, 163, 38, 0.15);
+            border: 1px solid #FFA726;
+            color: #FFA726;
+            padding: 16px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .error-message strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        
+        .error-message a {
+            color: #FFFFFF;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        
+        .footer-text {
+            color: #666666;
+            font-size: 13px;
+            margin-top: 24px;
+            line-height: 1.6;
+        }
+        
+        .footer-text a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .footer-text a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -100,24 +184,38 @@
         
         <div class="details">
             <div class="detail-item">
-                <span>📅 Duration:</span>
+                <span>📅 Duration</span>
                 <strong id="duration">-</strong>
             </div>
             <div class="detail-item">
-                <span>👤 Created by:</span>
+                <span>👤 Created by</span>
                 <strong id="creator">-</strong>
             </div>
         </div>
         
-        <a href="#" class="btn" id="openBtn">Open in Streakly App</a>
+        <button class="btn" id="openBtn" onclick="openApp()">
+            🚀 Open in Streakly App
+        </button>
         
         <div class="loading" id="loading">
             <div class="spinner"></div>
             Opening app...
         </div>
         
-        <p style="color: #999; font-size: 12px; margin-top: 20px;">
-            Don't have the app? <a href="#" style="color: #667eea;">Download Streakly</a>
+        <div class="error-message" id="errorMessage">
+            <strong>⚠️ App didn't open?</strong>
+            Make sure Streakly app is installed on your device.
+            <br><br>
+            <a href="https://play.google.com/store/apps/details?id=your.app.id" target="_blank">
+                Download from Play Store
+            </a>
+        </div>
+        
+        <p class="footer-text">
+            Don't have the app?<br>
+            <a href="https://play.google.com/store/apps/details?id=your.app.id" target="_blank">
+                Download Streakly
+            </a>
         </p>
     </div>
 
@@ -133,30 +231,64 @@
         // Display challenge info
         if (name) {
             document.getElementById('challengeName').textContent = decodeURIComponent(name);
+        } else {
+            document.getElementById('challengeName').textContent = 'Challenge Invitation';
         }
+        
         if (duration) {
             document.getElementById('duration').textContent = duration + ' days';
         }
+        
         if (creator) {
             document.getElementById('creator').textContent = decodeURIComponent(creator);
         }
         
         // Build deep link
-        const deepLink = `streakly://join?c=${challengeId}&g=${groupId}&n=${encodeURIComponent(name)}&d=${duration}&by=${encodeURIComponent(creator)}`;
+        const deepLink = `streakly://join?c=${challengeId}&g=${groupId}&n=${name}&d=${duration}&by=${creator}`;
         
-        // Set button href
-        document.getElementById('openBtn').href = deepLink;
+        console.log('Deep link:', deepLink);
         
-        // Auto-open after 1 second
-        setTimeout(() => {
+        // Function to open app
+        function openApp() {
+            console.log('Opening app...');
             document.getElementById('loading').style.display = 'block';
+            document.getElementById('openBtn').style.display = 'none';
+            
+            // Try to open app
             window.location.href = deepLink;
             
-            // If app didn't open after 3 seconds, hide loading
+            // Check if app opened
+            let appOpened = false;
+            
+            // If user returns to page, app probably didn't open
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden) {
+                    appOpened = true;
+                }
+            });
+            
+            // Show error if app didn't open after 2 seconds
             setTimeout(() => {
-                document.getElementById('loading').style.display = 'none';
-            }, 3000);
-        }, 1000);
+                if (!appOpened) {
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('errorMessage').style.display = 'block';
+                    document.getElementById('openBtn').style.display = 'block';
+                    document.getElementById('openBtn').textContent = '🔄 Try Again';
+                }
+            }, 2000);
+        }
+        
+        // Try auto-open after 1.5 seconds (gives user time to read)
+        setTimeout(() => {
+            // Don't auto-open on desktop
+            if (!/Mobi|Android/i.test(navigator.userAgent)) {
+                document.getElementById('openBtn').textContent = '🚀 Tap to Open App';
+                return;
+            }
+            
+            // Auto-open on mobile
+            openApp();
+        }, 1500);
     </script>
 </body>
 </html>
