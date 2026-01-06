@@ -15,10 +15,7 @@
     
     <title>Streakly - Habit Tracker & Challenges</title>
  <!-- 🔥 ADD THIS: Lottie Player -->
-<script
-  src="https://unpkg.com/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js"
-  type="module"
-></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -286,7 +283,7 @@
 
         .hero-habits-label {
             font-size: 1rem;
-            /* color: var(--text-secondary); */
+            color: var(--text-secondary);
             margin-bottom: 1rem;
             font-weight: 500;
         }
@@ -732,38 +729,17 @@
 
     <!-- ============ HERO SECTION ============ -->
     <section class="hero">
-        
-             <!--<img class="fire" src="fire.png" alt="Streakly Logo">-->
+        <div class="fire">
+            <img class="fire" src="fire.png" alt="Streakly Logo">
+        </div>
 
-<dotlottie-wc
-  src="https://lottie.host/eb4958ba-4494-4629-a025-0996046871b6/ROk5ec6TYb.lottie"
-  style="width: 100px;height: 100px"
-  autoplay
-  loop
-></dotlottie-wc>
- 
         <div class="hero-badge">Build Unstoppable Habits</div>
         <h1>Turn Your Goals Into<br><span class="accent-text">Streaks</span></h1>
         <p class="hero-subtitle">Track daily habits solo or with friends, and stay motivated through accountability and community.</p>
         
         <!-- Habit Picker Section -->
-         <br>
-<p class="hero-habits-label animated-repeat">👇 Pick your first habit to track:</p>
-
-<style>
-.animated-repeat {
-    animation: floatDown 2s ease-in-out infinite;
-}
-
-@keyframes floatDown {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(10px);
-    }
-}
-</style>
+        <div class="hero-habits">
+            <p class="hero-habits-label">👇 Pick your first habit to track:</p>
             <div class="hero-habits-chips" id="hero-habits-chips">
                 <button class="habit-chip" data-habit="Read 10 minutes daily">📚 Read 10 min</button>
                 <button class="habit-chip" data-habit="Walk 5,000 steps">🚶 Walk 5K steps</button>
@@ -784,13 +760,6 @@
 
     <!-- ============ FEATURES SECTION ============ -->
     <section class="features" id="features">
-          <dotlottie-wc
-    src="https://lottie.host/f79c7c2c-9b32-4b8c-a092-0ff769ca43ef/yOZ7nYJato.lottie"
-    style="width: 150px; height: 150px; display: block; margin: 0 auto;"
-    autoplay
-    loop
-  ></dotlottie-wc>
- 
         <div class="section-container">
             <h2 class="section-title">Why Streakly?</h2>
             <p class="section-subtitle">Everything you need to build amazing habits</p>
@@ -860,16 +829,7 @@
     </section>
 -->
     <!-- ============ HOW IT WORKS ============ -->
- 
- 
     <section class="how-it-works">
-           <dotlottie-wc
-  src="https://lottie.host/49069c9c-d537-4061-8ec5-2d342b852175/3Fj9nSUHNv.lottie"
-  style="width: 150px;height: 150px ; display: block; margin: 0 auto;"
-  autoplay
-  loop
-></dotlottie-wc>
- 
         <div class="section-container">
             <h2 class="section-title">How It Works</h2>
             <p class="section-subtitle">4 simple steps to build amazing habits</p>
@@ -904,12 +864,6 @@
 
     <!-- ============ CTA SECTION ============ -->
     <section class="cta-section" id="download">
-        <dotlottie-wc
-  src="https://lottie.host/d09ba9ce-5f03-4b71-8fee-0e68490148b4/LAmsudqcyV.lottie"
-  style="width: 150px;height: 150px; display: block; margin: 0 auto;"
-  autoplay
-  loop
-></dotlottie-wc>
         <div class="section-container">
             <h2>Ready to Build Your First Streak?</h2>
             <p>Join thousands building better habits every day. Start free!</p>
